@@ -1,5 +1,5 @@
 {
-    "name": "oub/oub-core",
+    "name": "rwarasaurus/relay",
     "type": "library",
     "authors": [
         {
@@ -14,7 +14,6 @@
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "~2",
-        "nyholm/psr7": "^1.1",
         "phpspec/phpspec": "^5",
         "phpstan/phpstan": "^0"
     },

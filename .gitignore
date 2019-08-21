@@ -2,3 +2,4 @@ vendor
 bin
 *.log
 *.cache
+*.lock
