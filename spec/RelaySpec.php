@@ -1,15 +1,20 @@
 <?php
 
-namespace spec;
+namespace spec\Relay;
 
 use PhpSpec\ObjectBehavior;
-use Prophecy\Argument;
-use Relay\Relay;
+
+use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\ServerRequestInterface;
+use Psr\Http\Server\MiddlewareInterface;
 
 class RelaySpec extends ObjectBehavior
 {
-    function it_is_initializable()
+    public function it_should_work(ServerRequestInterface $request, ResponseInterface $response, MiddlewareInterface $first, MiddlewareInterface $second)
     {
-        $this->shouldHaveType(Relay::class);
+        $this->beConstructedWith([$first, $second]);
+        $first->process($request, $this)->willReturn($response);
+        $second->process($request, $this)->willReturn($response);
+        $this->handle($request)->shouldReturn($response);
     }
 }

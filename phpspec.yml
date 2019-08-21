@@ -1,0 +1,8 @@
+formatter.name: pretty
+stop_on_failure: true
+code_generation: false
+suites:
+    default:
+        namespace: Relay
+        psr4_prefix: Relay
+        src_path: ./src
