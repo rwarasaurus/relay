@@ -1,0 +1,41 @@
+{
+    "name": "oub/oub-core",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Kieron",
+            "email": "kieron@fastmail.fm"
+        }
+    ],
+    "require": {
+        "psr/http-message": "^1.0",
+        "psr/http-server-handler": "^1.0",
+        "psr/http-server-middleware": "^1.0"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "~2",
+        "nyholm/psr7": "^1.1",
+        "phpspec/phpspec": "^5",
+        "phpstan/phpstan": "^0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Relay\\": "src/"
+        }
+    },
+    "config": {
+        "preferred-install": "dist",
+        "sort-packages": true,
+        "bin-dir": "bin"
+    },
+    "scripts": {
+        "psr": [
+            "./bin/php-cs-fixer fix src/ --allow-risky=yes --rules=@PSR2,no_unused_imports,ordered_imports,ordered_interfaces,single_quote,trailing_comma_in_multiline_array"
+        ],
+        "uninstall": [
+            "rm -rf ./bin",
+            "rm -rf ./vendor",
+            "rm ./composer.lock"
+        ]
+    }
+}
